@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base href="{BASE_URL}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="libs/bootstrap5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <link rel="shortcut icon" href="images/icon/favicon.ico" type="images/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="images/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+    <link rel="icon" type="images/png" sizes="96x96" href="images/icon/favicon-96x96.png">
+    <link rel="icon" type="images/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+
+    <title></title>
+
+<body>
+    <header>
+        <div id="top-bar" class="fixed-top bkg-primary-d2 text-white d-flex justify-content-between align-items-center" style="height: 50px; z-index: 1060;">
+            <div class="menuHamburguesa">
+                <button class="btn btn-secondary rounded-0 bkg-primary-d3 p-0" type="button" id="burgerButton" onclick="showHideMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </button>
+                <div class="menuHamburguesa-child d-none">
+                    <a href="">Mis Favoirtos</a>
+                    <a href="">Mis PlayLists</a>
+                    <a href="">Crear PlayList</a>
+                    <div class="menu-separator"></div>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+                    <a href="">Perfil</a>
+                    <a href="">Planes</a>
+                    <a href="">Preferencias</a>
+                    <a href="">Ayuda</a>
+                    <div class="menu-separator"></div>
+                    <a> <span class="text-red">Cerrar Sesión</span></a>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <form id="search-form" class="d-flex justify-content-center align-items-center bkg-primary" role="search" onsubmit="return goToSearch(event)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#A3A9AE" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                    <input id="search-input" class="form-control form-control-sm me-2 fw-bold" type="search" value="busca cancion" aria-label="Buscar" id="search-input">
+                </form>
+                <button class="btn btn-secondary rounded-0" type="button" id="categoryButton">
+                    <a href="#categories"><h3>Categorías</h3></a>
+                </button>
+            </div>
+            <div>
+                <button class="btn btn-secondary rounded-0 bkg-primary-d3 p-0" type="button" id="notificationButton" onclick="showHideNotificationMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#6C757D" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                    </svg>
+                </button>
+                <div class="notificationMenu-child d-none">
+                    <a class="d-flex justify-content-between w-100 bkg-primary-l1 p-2">
+                        <div class="date">
+                            10:16
+                        </div>
+                        <div class="date">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus numquam error similique nam, architecto vero, temporibus minima corrupti quibusdam amet natus! Optio deserunt consequatur omnis dolor nesciunt cumque hic reiciendis!
+                        </div>
+                        <div class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="py-2 px-3" style="margin-top: 50px;">
+        <div class="d-flex flex-wrap gap-2 justify-content-center align-items-center">
+            <div>Filtros:</div>
+            <button class="btn btn-sm btn-light rounded-pill px-4 fw-bold">Todos</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-4 fw-bold">Canciones</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-4 fw-bold">Lo nuevo</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-4 fw-bold">Álbumes</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-4 fw-bold">Artistas</button>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-4 fw-bold">Podcast</button>
+        </div>
+    </div>
+
+    <!-- toast de favorito guardado -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 2000">
+    <div id="favToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+        <div class="toast-body">
+            ¡Guardado en favoritos!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+        </div>
+    </div>
+    </div> 
+
+    <!-- inicio de sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bkg-primary-d2">
+        <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <a class="my-2">¿Olvidaste tu contraseña?</a>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- contenido -->
+    <div class="container-fluid content">
+        <section class="row">
+            <div class="box2 col-8">
+                <h2 class="title2">Canciones</h2>
+                <div class="sparator-w mb-2"></div>
+                <div class="row row-cols-1 g-2">
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre de la canción</div>
+                                    <div class="text-truncate">Nombre del Álbum - Nombre del Artista</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box2 col-4">
+                <h2 class="title2">Artistas</h2>
+                <div class="separator-w mb-2"></div>
+                <div class="row row-cols-1 g-2">
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Artista</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Artista</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Artista</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Artista</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Artista</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="box2">
+                <h2 class="title2">Podcast</h2>
+                <div class="separator-w mb-2"></div>
+                <div class="row row-cols-1 g-2">
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-song rounded-0 d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img src="images/albumes/id2.jpg" class="image-fluid d-none d-xl-block" alt="imagen de album">
+                                <div class="d-flex flex-column px-2 justify-content-center text-song">
+                                    <div class="text-truncate">Nombre del Podcast</div>
+                                </div>
+                                <button class="btn-fav bg-transparent border-0 p-0 mx-3" onclick="toggleFav(this)">
+                                    <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                                        <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                        <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center px-1">
+                                <div class="mx-3">6:15</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <div id="music-player" class="fixed-bottom bg-dark text-white d-flex justify-content-between align-items-center" style="height: 70px; z-index: 1050;">
+        <div class="col-4 d-flex">
+            <div>
+                <div class="fw-bold" id="song-title" style="max-width: 350px"">
+                    <a>Nombre de la canción ultra mega largo de</a>
+                </div>
+                <div class="d-flex mt-1">
+                    <div>
+                        <a>Nombre del Álbum</a>
+                    </div>
+                    <div>&nbsp;-&nbsp;</div>
+                    <div>
+                        <a>Nombre de la Banda</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column ms-4">
+                <div class="d-flex justify-content-around">
+                    <button class="btn-fav bg-transparent border-0 p-0 mx-1" onclick="toggleFav(this)">
+                        <span class="position-relative d-inline-block" style="width: 16px; height: 16px;">
+                            <svg class="heart-outline position-absolute top-0 start-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                            </svg>
+                            <svg class="heart-fill position-absolute top-0 start-0 d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF8F3C" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mx-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" class="bi bi-share-fill" viewBox="0 0 16 16">
+                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                        </svg>
+                    </div>
+                    <div class="mx-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="song-rating" data-rating="0">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="d-flex justify-content-center align-items-center mb-1">
+                <div class="rounded-circle bg-none p-1 text-secondary-l2 fw-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
+                    <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/>
+                    </svg>
+                </div>
+                <div class="d-flex rounded-circle bkg-accent player-btn-sec p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000" class="ionicon" viewBox="0 0 512 512"><path d="M112 64a16 16 0 0116 16v136.43L360.77 77.11a35.13 35.13 0 0135.77-.44c12 6.8 19.46 20 19.46 34.33v290c0 14.37-7.46 27.53-19.46 34.33a35.14 35.14 0 01-35.77-.45L128 295.57V432a16 16 0 01-32 0V80a16 16 0 0116-16z"/></svg>
+                </div>
+                <div class="d-flex rounded-circle bkg-accent p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#000000" class="ionicon" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+                    </svg>
+                </div>
+                <div class="d-flex rounded-circle bkg-accent player-btn-sec p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#000000" class="ionicon" viewBox="0 0 512 512"><path d="M400 64a16 16 0 00-16 16v136.43L151.23 77.11a35.13 35.13 0 00-35.77-.44C103.46 83.47 96 96.63 96 111v290c0 14.37 7.46 27.53 19.46 34.33a35.14 35.14 0 0035.77-.45L384 295.57V432a16 16 0 0032 0V80a16 16 0 00-16-16z"/></svg>
+                </div>
+                <div class="rounded-circle bg-none p-1 text-secondary-l2 fw-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                    <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="w-100">
+                <div class="d-flex align-items-center">
+                    <!-- <button class="btn btn-light btn-sm me-3" id="play-btn">&#9654;</button> -->
+                    <span class="text-accent me-2">0:00</span>
+                    <input type="range" id="seek-bar" value="0" max="100" class=" w-100 me-2">
+                    <!-- <span id="current-time">0:00</span> / <span id="duration">3:45</span> -->
+                    <audio id="audio" src="ruta/a/tu/cancion.mp3"></audio>
+                    <span>5:32</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <div class="me-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A3A9AE" class="bi bi-music-note-list" viewBox="0 0 16 16">
+                <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
+                <path fill-rule="evenodd" d="M12 3v10h-1V3z"/>
+                <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z"/>
+                <path fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"/>
+                </svg>
+            </div>
+            <div class="d-flex volume-control me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#A3A9AE" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+                <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+                <path d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+                </svg>
+                <input type="range" id="seek-bar" value="0" max="100" class="volume-slider">
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <footer id="mainfooter" class="bkg-primary">
+        <div class="container d-flex flex-column flex-md-row justify-content-center mb-5 px-4">
+            <div class="footer-column">
+                <ul class="d-flex flex-column flex-md-wrap list-unstyled mx-md-3">
+                    <li class="mb-2"><a href="catalogo/terra">Inicio</a></li>
+                    <li class="mb-2"><a href="catalogo/terra">Perfil</a></li>
+                    <li class="mb-2"><a href="catalogo/capri">Preferencias</a></li>
+                    <li class="mb-2"><a href="catalogo/cherry">Mis Favoritos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul class="d-flex flex-column flex-md-wrap list-unstyled mx-md-3">
+                    <li class="mb-2"><a href="catalogo/terra">Planes de Suscripción</a></li>
+                    <li class="mb-2"><a href="catalogo/capri">Términos y Condiciones</a></li>
+                    <li class="mb-2"><a href="catalogo/cherry">FAQ & Soporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <div class="d-flex flex-column align-items-center">
+                    ¡Seguinos en nuestras redes!
+                    <div class="d-flex p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram mx-1" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-facebook mx-1" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-tiktok mx-1" viewBox="0 0 16 16">
+                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-twitter-x mx-1" viewBox="0 0 16 16">
+                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <p class="mb-0">&copy; 2025 EssenMR</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="libs/bootstrap5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/topbar.js"></script>
+    <script type="text/javascript" src="js/buttons.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/burguerMenu.js"></script>
+</body>
+</html>

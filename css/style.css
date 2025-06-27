@@ -1,0 +1,376 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/Nunito/static/Nunito-Regular.ttf') format('truetype');    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --primario: #2A3746;
+    --primarioSombra1: #232E3A;
+    --primarioSombra2: #1C2630;
+    --primarioSombra3: #161E26;
+    --primarioLuz1: #4A5A66;
+    --primarioLuz2: #6C7C88;
+    --primarioLuz3: #8F9BA5;
+    --secundario: #6C757D;
+    --secundarioSombra1: #5B636A;
+    --secundarioSombra2: #4A5056;
+    --secundarioSombra3: #3A3E43;
+    --secundarioLuz1: #889097;
+    --secundarioLuz2: #A3A9AE;
+    --secundarioLuz3: #C7CBCE;
+    --acento: #FF8F3C;
+    --acentoSombra1: #E47E34;
+    --acentoSombra2: #B86528;
+    --acentoSombra3: #8F4C1B;
+    --acentoLuz1: #FFA65E;
+    --acentoLuz2: #FFC188;
+    --acentoLuz3: #FFE0C0;
+    --texto: #F5F5F5;
+    --blanco: #F5F5F5;
+    --negro: #2C2C2C;
+    --rojo: #FA5151;
+    --logo: #2E58FF;
+    --textLink: #8AB3FD;
+    
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    background: var(--primarioSombra3);
+}
+
+body, .dropdown-menu .dropdown-item{
+    color: #F5F5F5;
+}
+
+.content{
+    padding-top: 40px;
+}
+
+.bkg-primary, #search-input, .dropdown-menu .dropdown-item{
+    background-color: var(--primario);
+}
+
+.bkg-primary-d1{
+    background-color: var(--primarioSombra1);
+}
+
+.bkg-primary-d2, #top-bar, #categoryButton{
+    background-color: var(--primarioSombra2) !important;
+}
+
+.bkg-primary-l1{
+    background-color: var(--primarioLuz1);
+
+}
+
+.bkg-accent{
+    background-color: var(--acento);
+}
+
+.text-red{
+    color: var(--rojo) !important;
+}
+
+.text-accent{
+    color: var(--acento) !important;
+}
+
+.text-secondary-l3{
+    color: var(--secundarioLuz3) !important;
+}
+a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--blanco);
+}
+
+h1, h2, h3, .card-new-songs{
+    font-weight: bold;
+    margin: 0;
+}
+h1{
+    font-size: 32px;
+}
+h2{
+    font-size: 20px;
+}
+h3, .card-new-songs{
+    font-size: 16px;
+}
+
+#top-bar {
+    height: 58px;
+    display: flex;
+    width: 100%;
+    padding: 16px 8px 16px 8px;
+}
+
+#search-form{
+    width: 500px;
+    padding-top: 2px;
+    padding-bottom: 2px;   
+    padding-left: 8px;
+}
+
+#search-input{
+    font-size: 16px;
+    color: #A3A9AE;
+    border: 0;
+    border-radius: 0;
+}
+
+#search-input:focus {
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+#categoryButton{
+    font-weight: bold;
+    font-size: 12px;
+    color: #A3A9AE !important;
+    border: 0;
+    padding-left: 16px;
+}
+
+#burgerButton, #notificationButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menuHamburguesa-child, .notificationMenu-child {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    background-color: var(--primarioSombra1);
+    min-width: 200px;
+    width: 250px;
+    height: auto;
+}
+.menuHamburguesa-child a, .notificationMenu-child a {
+    color: var(--texto) !important;
+    text-align: center;
+    width: 100%;
+    background-color: var(--primario);
+    color: black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    display: block;
+}
+.menuHamburguesa-child a:hover, .notificationMenu-child a:hover{
+    background-color: var(--primarioLuz1);
+}
+.menu-separator{
+    display: flex;
+    height: 2px;
+    background: var(--negro);
+}
+.menuHamburguesa-child{
+    top: 49px; left: 0px;
+}
+.notificationMenu-child {
+    top: 49px; right: 0px;
+    width: 350px;
+}
+
+#music-player {
+    height: 80px !important;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+    padding: 16px;
+}
+.song-rating {
+  display: flex;
+  gap: 2px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.song-rating .star {
+  color: #A3A9AE;
+  transition: color 0.2s;
+}
+.song-rating .star.selected,
+.song-rating .star.hovered {
+  color: #FF8F3C;
+}
+
+.player-btn-sec{
+    background: var(--secundarioLuz2);
+}
+
+.player-btn-sec, .player-btn-esp{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.volume-control {
+    align-items: center;
+}
+
+.volume-control svg {
+    color: #A3A9AE;
+    transition: color 0.2s;
+}
+
+.volume-control svg:hover {
+    color: #FF8F3C; /* Color de acento al pasar el mouse */
+}
+
+.volume-slider {
+    width: 100px;
+    accent-color: #FF8F3C; /* Cambia el color del slider en navegadores modernos */
+    height: 4px;
+    margin-right: 8px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.card-new{
+    height: 400px;
+    width: 100%;
+    background: var(--negro);
+    margin-bottom: 50px;
+}
+
+.card-new-image, .card-new-body{
+    height: 400px;
+    width: 400px;
+    background: var(--negro);
+}
+
+.card-new-body{
+    padding: 24px 16px 24px 16px;
+}
+.card-new-songs{
+    height: 242px;
+    overflow-y: hidden;
+}
+.card-new-songs p{
+    margin: 0;
+}
+
+.title{
+    padding: 16px 24px 16px 24px;
+}
+.title2{
+    padding: 16px 24px 8px 68px;
+}
+
+.separator, .separator-w{
+    height: 5px;
+    width: 40%;
+    background: var(--acento);
+}
+.separator-w{
+    width: 100%;
+    background: var(--texto);
+}
+
+.degrade{
+    background: linear-gradient(to bottom, #4A5A66, #2C2C2C);
+}
+
+.card-album{
+    background: var(--primarioSombra1);
+    border-radius: 0% !important;
+}
+.card-album:hover {
+    box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.8);
+}
+.card-song{
+    background: var(--primarioSombra1);
+    height: 72px;
+}
+.song-image{
+    max-width: 56px;
+    max-height: 56px;
+}
+.box1{
+    padding: 8px 24px 8px 24px;
+}
+.box2{
+    padding: 8px 12px 8px 12px;
+}
+.subtitle{
+    color: var(--secundarioLuz1);
+    padding: 8px 0px 8px 0px;
+}
+.btn-fav {
+  outline: none;
+}
+.heart-fill, .heart-outline {
+  transition: opacity 0.2s;
+}
+
+footer{
+    padding: 48px 72px 48px 72px;
+}
+.footer-link{
+    margin-bottom: 12px;
+}
+.footer-column{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.card-category{
+    background: var(--primario);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 8px #000;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #4A5A66, #2c2c2c00);
+
+}
+
+.text-song{
+    max-width: 300px;
+}
+
+.modal{
+    background: var(--primarioSombra1);
+    color: var(--texto);
+}
+.top-playlist{
+    height: 182px;
+    width: 100%;
+    background: var(--primarioSombra3);
+}
+
+@media only screen and (max-width: 600px){
+    .card-new{
+        height: 200px;
+        width: 400px;
+    }
+
+    .card-new-image, .card-new-body{
+        height: 200px;
+        width: 200px;
+    }
+
+    #search-form{
+        width: 200px;
+    }
+    
+    .text-song{
+        max-width: 150px;
+    }
+}
+
