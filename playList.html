@@ -551,9 +551,18 @@
                 <input type="range" id="seek-bar" value="0" max="100" class="volume-slider">
             </div>
             <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
-                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
-                </svg>
+                <div class="dropup">
+                    <button class="btn bg-transparent border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#A3A9AE" class="bi bi-three-dots" viewBox="0 0 16 16">
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Agregar a playlist</a></li>
+                        <li><a class="dropdown-item" href="#">Compartir</a></li>
+                        <li><a class="dropdown-item" href="#">Ver detalles</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
