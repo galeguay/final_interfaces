@@ -202,7 +202,7 @@ h3, .card-new-songs{
   color: #FF8F3C;
 }
 
-.player-btn-sec{
+.player-btn-sec, #pause{
     background: var(--secundarioLuz2);
 }
 
@@ -210,6 +210,7 @@ h3, .card-new-songs{
     margin-left: 8px;
     margin-right: 8px;
 }
+
 
 .volume-control {
     align-items: center;

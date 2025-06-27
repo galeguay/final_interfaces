@@ -9,3 +9,18 @@ function toggleFav(btn) {
   const toast = new bootstrap.Toast(toastEl);
   toast.show();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const playBtn = document.getElementById('play');
+  const pauseBtn = document.getElementById('pause');
+
+  playBtn.addEventListener('click', function() {
+    playBtn.classList.add('d-none');
+    pauseBtn.classList.remove('d-none');
+  });
+
+  pauseBtn.addEventListener('click', function() {
+    pauseBtn.classList.add('d-none');
+    playBtn.classList.remove('d-none');
+  });
+});
